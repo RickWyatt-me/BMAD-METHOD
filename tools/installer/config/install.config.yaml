@@ -26,8 +26,32 @@ ide-configurations:
     command-suffix: .md
     instructions: |
       # To use BMad agents in Claude Code:
-      # 1. Type /agent-name (e.g., "/dev", "/pm", "/architect")
-      # 2. Claude will switch to that agent's persona
+
+      ## Installation Steps:
+      1. Install the Claude Code extension from VS Code Marketplace
+      2. Configure your Anthropic API key in the extension settings
+      3. Run the BMad installer: `npx bmad-method install --full --ide claude-code`
+
+      ## Usage:
+      1. Open the Claude Code chat panel (click Claude icon in sidebar)
+      2. Type /agent-name (e.g., "/dev", "/pm", "/architect") to activate agents
+      3. Use the command palette (Ctrl+Shift+P) to access Claude commands
+      4. Type `*help` after activating an agent to see available commands
+
+      ## Available Agents:
+      - /dev - Full Stack Developer for implementation
+      - /pm - Product Manager for requirements and planning
+      - /architect - System Architect for design decisions
+      - /qa - Quality Assurance Engineer for testing
+      - /analyst - Business Analyst for requirements analysis
+      - /sm - Scrum Master for workflow management
+      - /po - Product Owner for story creation
+      - /ux-expert - UX Expert for user experience design
+
+      ## Tips:
+      - Start new chats when switching between agents for best results
+      - Use `/bmad-orchestrator` for multi-agent coordination
+      - Commands and tasks are stored in .claude/commands/BMad/ directory
   iflow-cli:
     name: iFlow CLI
     rule-dir: .iflow/commands/BMad/
