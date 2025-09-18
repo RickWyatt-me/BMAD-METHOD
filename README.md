@@ -118,6 +118,10 @@ BMAD™'s natural language framework works in ANY domain. Expansion packs provid
 - 🏗️ **[Core Architecture](docs/core-architecture.md)** - Technical deep dive and system design
 - 🚀 **[Expansion Packs Guide](docs/expansion-packs.md)** - Extend BMad to any domain beyond software development
 
+### IDE Setup Guides
+
+- 🤖 **[Claude Code Extension Setup](docs/claude-code-setup.md)** - Complete guide for using Claude Code with BMAD-METHOD™
+
 ## Support
 
 - 💬 [Discord Community](https://discord.gg/gk8jAdXWmj)

@@ -96,7 +96,7 @@ npx bmad-method install
 - Choose "Complete installation"
 - Select your IDE from supported options:
   - **Cursor**: Native AI integration
-  - **Claude Code**: Anthropic's official IDE
+  - **Claude Code**: Anthropic's official IDE with native AI capabilities
   - **Windsurf**: Built-in AI capabilities
   - **Trae**: Built-in AI capabilities
   - **Cline**: VS Code extension with AI features
@@ -105,6 +105,8 @@ npx bmad-method install
   - **Auggie CLI (Augment Code)**: AI-powered development environment
 
 **Note for VS Code Users**: BMAD-METHOD™ assumes when you mention "VS Code" that you're using it with an AI-powered extension like GitHub Copilot, Cline, or Roo. Standard VS Code without AI capabilities cannot run BMad agents. The installer includes built-in support for Cline and Roo.
+
+**Claude Code Extension Setup**: If you're using the Claude Code extension in VS Code, install it from the VS Code Marketplace, then configure it with your Anthropic API key. Once installed, you can access BMad agents via the command palette (Ctrl+Shift+P) and the Claude Code chat panel.
 
 **Verify Installation**:
 
@@ -328,6 +330,85 @@ You are the "Vibe CEO" - thinking like a CEO with unlimited resources and a sing
 /dev implement story 1.2
 /help - Show available commands
 /switch agent-name - Change active agent (if orchestrator available)
+```
+
+### Claude Code Extension Setup Guide
+
+#### Installing the Claude Code Extension
+
+**Step 1: Install the Extension**
+
+1. Open VS Code
+2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X)
+3. Search for "Claude Code" or "Claude" by Anthropic
+4. Click "Install" on the official Claude Code extension
+
+**Step 2: Configure Your API Key**
+
+1. After installation, you'll see a Claude icon in your sidebar
+2. Click on the Claude icon to open the Claude panel
+3. Follow the setup instructions to add your Anthropic API key
+4. You can get an API key from the Anthropic Console (console.anthropic.com)
+
+**Step 3: Install BMad Agents**
+
+```bash
+# In your project directory
+npx bmad-method install --full --ide claude-code
+```
+
+#### Using BMad Agents in Claude Code
+
+**Method 1: Slash Commands in Chat**
+
+1. Open the Claude Code chat panel (click the Claude icon in sidebar)
+2. Type `/` followed by the agent name:
+   - `/dev` - Activate the Developer agent
+   - `/pm` - Activate the Product Manager agent
+   - `/architect` - Activate the System Architect agent
+   - `/qa` - Activate the QA Engineer agent
+
+**Method 2: Command Palette**
+
+1. Press Ctrl+Shift+P (Cmd+Shift+P on Mac) to open command palette
+2. Type "Claude" to see available Claude commands
+3. Select from available BMad agent commands
+
+**Method 3: Direct Agent Commands**
+Once an agent is activated, you can use agent-specific commands:
+
+- `*help` - Show available commands for the current agent
+- `*create` - Create a new user story (SM agent)
+- `*shard-doc` - Break down documents (various agents)
+
+#### Troubleshooting Claude Code Extension
+
+**Common Issues**:
+
+1. **Commands not appearing**: Ensure you've run the installer with `--ide claude-code`
+2. **Agent files not found**: Check that `.claude/commands/BMad/` directory exists in your project
+3. **Extension not responding**: Restart VS Code or reload the window (Ctrl+Shift+P -> "Developer: Reload Window")
+4. **API key issues**: Verify your Anthropic API key is correctly configured in the Claude extension settings
+
+**File Structure After Installation**:
+
+```
+your-project/
+├── .claude/
+│   └── commands/
+│       └── BMad/
+│           ├── agents/
+│           │   ├── dev.md
+│           │   ├── pm.md
+│           │   └── ...
+│           └── tasks/
+│               ├── create-doc.md
+│               ├── shard-doc.md
+│               └── ...
+└── .bmad-core/
+    ├── agents/
+    ├── tasks/
+    └── ...
 ```
 
 ## Team Configurations

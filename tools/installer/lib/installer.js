@@ -447,7 +447,7 @@ class Installer {
     }
 
     spinner.succeed('Installation complete!');
-    this.showSuccessMessage(config, installDir, options);
+    await this.showSuccessMessage(config, installDir, options);
   }
 
   async handleExistingV4Installation(config, installDir, state, spinner) {
@@ -880,15 +880,15 @@ class Installer {
     return result;
   }
 
-  showSuccessMessage(config, installDir, options = {}) {
+  async showSuccessMessage(config, installDir, options = {}) {
     console.log(chalk.green('\n✓ BMad Method installed successfully!\n'));
 
     const ides = config.ides || (config.ide ? [config.ide] : []);
     if (ides.length > 0) {
       for (const ide of ides) {
-        const ideConfig = configLoader.getIdeConfiguration(ide);
+        const ideConfig = await configLoader.getIdeConfiguration(ide);
         if (ideConfig?.instructions) {
-          console.log(chalk.bold(`To use BMad agents in ${ideConfig.name}:`));
+          console.log(chalk.bold(`\n📋 To use BMad agents in ${ideConfig.name}:`));
           console.log(ideConfig.instructions);
         }
       }
